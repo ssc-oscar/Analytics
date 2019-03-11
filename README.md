@@ -88,7 +88,7 @@ see lookup/grepNew.pbs for exact details.
 ```
 for j in {0..31}; do zcat /da0_data/basemaps/gz/c2fFullN$j.s; done | grep '\.c$'
 ```
-1. Get all authors containing string 'audris'
+2. Get all authors containing string 'audris'
 ```
 zcat /da0_data/basemaps/gz/asN.s | grep -i 'audris'
 ```
@@ -100,4 +100,27 @@ use WoC
 db.authors.find({ "email" : { $regex: /^andrey/i}} )
 //or
 db.authors.find({$text:{$search:"mockus"}})
+```
+
+# Creating services so that the maps can be accessed via socket
+For example, we want to have author-to-project map on port 9999
+```
+./tcServer.perl /da0_data/basemaps/a2pFullN 32 9999 str2str
+```
+
+To query, we send authors to get the list of projects they committed
+to:
+```
+echo 'Audris Mockus <audris@mockus.org>' | ./clientS2S.perl
+
+E;5;Audris Mockus <audris@mockus.org>;AmreenS_Homework0;AmreenS_students;BIGJosher_Homework0;CaptainEmerson_chapters;CodyJae_students;Curtis017_students;Justa-ghost_students;MBenkhayal_students;RyanCaldwell1_students;Spicychckn_students;W4D3_news;ahota_Homework0;alexklibisz_students;almasaeed2010_students;audris_www;audrism_pbxu;awachte_students;barik_survey-chp-ds4se;beamad12_students;bramadams_chapters;ccrumpton_Homework0;ccrumpton_students;cdaffron_Homework0;cdaffron_students;chumekaboom_news;chumekaboom_students;ctang7_Homework0;ctang7_syllabus;ctang7_team2;cwilker_students;davpcunn_students;deytia_Homework0;djshouse_Homework0;dmercer2_Homework0;ds4se_chapters;eveng_tasks;fdac15_news;fdac_Assignment1;fdac_Homework0;fdac_MapMyFitness;fdac_Project1;fdac_Project2;fdac_presentations;fdac_students;fdac_syllabus;fdac_team1;fdac_team2;fdac_team5.2;fdacstudent0_Homework0;gsimpson723_students;igorwiese_syllabus;inthesunset_students;jalexiad_Homework0;jander43_MapMyFitness;jaredmichaelsmith_news;jaredmichaelsmith_students;jaredthecoder_students;jduggan1_Homework0;jherold2_students;jking018_news;jking018_students;jlong49_Homework0;jlong49_students-1;joseph346_students;jtyler7_students;kagrawa1_Homework0;kagrawa1_syllabus;kagrawa1_team1;kdunn13_Assignment1;kdunn13_students;kevinmel2000_chapters;kylebshr_students;maleknaz_chapters;markdcarringer_Homework0;matsuobasho_students;midnightslacker_MapMyFitness;milanjpatel_news;milanjpatel_students;millermoore_students;mtwe_students;nateige_students;nwilder0_students;rcm684_Homework0;rcm684_syllabus;rerwin21_students;rhoque-icl_students;rjlusk10_Assignment1;rjlusk10_Homework0;rjlusk10_team2;roissusanto_students;rroper1_news;rroper1_students;ryanwagn_students;sbradfo5_students;ssc-oscar_fingerprinting;ssc-oscar_titan;stonecoldhughes_students;tapjdey_news;tapjdey_students;taurytang_syllabus;tbwhite2_Homework0;teaguejt_students;tennisjohn21_news;theisencr_chapters;tjonesster_students;tplunke1_students;turhanb_chapters
+
+
+If we want to have author-to-commit map on port 9998
+```
+./tcServer.perl /da0_data/basemaps/a2cFullN 32 9998 s2h
+```
+To query:
+```
+echo 'Audris Mockus <audris@mockus.org>' | ./clientS2H.perl
 ```
