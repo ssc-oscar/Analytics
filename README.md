@@ -30,7 +30,8 @@ t - time
 m - module
 ```
 
-# How to get the data out
+# How to get the data out via a shell script
+These are rando-access examples, where relatively few items from the entire set are queried. For large numbers of items a sweep may be much faster, see next section
 
 1. Get a list of projects for an author
 ```
@@ -81,3 +82,22 @@ echo f1b66dcca490b5c4455af319bc961a34f69c72c2 | perl ~audris/bin/showTree.perl
 Details for Go, for example, are in c2bPtaPkgMGo.{0..31}.gz
 see lookup/grepNew.pbs for exact details.
 
+# How to get the data out via a shell script (sweep)
+
+1. Get all commits modifying files with .c extension
+```
+for j in {0..31}; do zcat /da0_data/basemaps/gz/c2fFullN$j.s; done | grep '\.c$'
+```
+1. Get all authors containing string 'audris'
+```
+zcat /da0_data/basemaps/gz/asN.s | grep -i 'audris'
+```
+
+# Some data is extracted and stored in MongoDB to facilitate more accurate search
+```
+mongo --host=da1
+use WoC
+db.authors.find({ "email" : { $regex: /^andrey/i}} )
+//or
+db.authors.find({$text:{$search:"mockus"}})
+```
