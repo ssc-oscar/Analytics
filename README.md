@@ -4,15 +4,15 @@
 
 Data are available in two forms:
 
-    - text file (gzipped and sorted by the first column) and located on da0:/data/basemaps/gz 
-    - random-access (tch) databases located on on da0:/data/basemaps/
+   - text file (gzipped and sorted by the first column) and located on da0:/data/basemaps/gz 
+   - random-access (tch) databases located on on da0:/data/basemaps/
 
 
 The notation of these databases consist of
 
-    - The prefix describing the type of data,
-    - Followed by completness (Full is complete while absence means only the updated data for that version)
-    - The last letter denotes version (in alphabetical
+   - The prefix describing the type of data,
+   - Followed by completness (Full is complete while absence means only the updated data for that version)
+   - The last letter denotes version (in alphabetical
     order). Currently the last version is N
 	- Number  0-31 (or 0-127): the part of the database
 
