@@ -124,3 +124,12 @@ To query:
 ```
 echo 'Audris Mockus <audris@mockus.org>' | ./clientS2H.perl
 ```
+
+
+# Related repositories
+
+[Project overview](https://bitbucket.org/swsc/overview)
+
+[Python wrappers](https://github.com/ssc-oscar/oscar.py)
+
+
