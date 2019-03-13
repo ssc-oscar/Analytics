@@ -133,4 +133,6 @@ echo 'Audris Mockus <audris@mockus.org>' | ./clientS2H.perl
 
 [Python wrappers](https://github.com/ssc-oscar/oscar.py)
 
+[Repository discovery](https://github.com/ssc-oscar/gather)
 
+[Repository data extraction](https://github.com/ssc-oscar/libgit2)
