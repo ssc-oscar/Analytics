@@ -136,3 +136,5 @@ echo 'Audris Mockus <audris@mockus.org>' | ./clientS2H.perl
 [Repository discovery](https://github.com/ssc-oscar/gather)
 
 [Repository data extraction](https://github.com/ssc-oscar/libgit2)
+
+[Identity disambiguation models](https://github.com/ssc-oscar/fingerprinting)
