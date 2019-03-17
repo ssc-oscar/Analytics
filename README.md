@@ -131,6 +131,12 @@ echo 'Audris Mockus <audris@mockus.org>' | ./clientS2H.perl
 
 [Project overview](https://bitbucket.org/swsc/overview)
 
+[Plots of trends for language use and technical dependencies](https://github.com/ssc-oscar/plots)
+
+[Clone identification for ecosystems](https://github.com/ssc-oscar/clone-detector)
+
+[Clone identification for HartBleed](https://github.com/ssc-oscar/HBL]
+
 [Python wrappers](https://github.com/ssc-oscar/oscar.py)
 
 [Repository discovery](https://github.com/ssc-oscar/gather)
